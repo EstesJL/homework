@@ -10,6 +10,10 @@
                 padding: 10px;
                 display: none;
             }
+            /*Added 'error' class so that elements failing to validate will be highlighted in red*/
+            .error {
+                border: 1px solid red;
+            }
         </style>
     </head>
     <body>
@@ -19,12 +23,14 @@
             <form>
                 <div>
                     <label>Age
-                        <input type="text" name="age">
+                      <!-- Added 'age' ID so the element can be selected with JS -->
+                        <input type="text" name="age" id="age">
                     </label>
                 </div>
                 <div>
                     <label>Relationship
-                        <select name="rel">
+                        <!-- Added 'relationship' ID so the element can be selected with JS -->
+                        <select name="rel" id="relationship">
                             <option value="">---</option>
                             <option value="self">Self</option>
                             <option value="spouse">Spouse</option>
@@ -44,7 +50,8 @@
                     <button class="add">add</button>
                 </div>
                 <div>
-                    <button type="submit">submit</button>
+                  <!-- Added an onClick handler to check for a submission event -->
+                    <button type="submit" onclick="validate()">submit</button>
                 </div>
             </form>
         </div>
